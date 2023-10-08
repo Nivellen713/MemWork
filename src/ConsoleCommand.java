@@ -1,36 +1,36 @@
 import java.io.IOException;
 
 public class ConsoleCommand {
+
     public void help(){
         System.out.println("""
                 help - see manual
                 mem - add your text to selected picture
-                place - change text place (center, top, bottom)
-                font - change font
-                size - change text size
-                color - change text color
-                exit - turn off program
+                -p - change text place (center, top, bottom)
+                -f - change font
+                -s - change text size
+                -c - change text color
                 """);
     }
 
-    public void mem(String pathToFile, String text) throws IOException {
-        ImageEdit imageEdit = new ImageEdit(pathToFile);
-        imageEdit.addTextOnImage(text);
+    public void mem(ImageEdit imageEdit, String text) throws IOException {
+        imageEdit.setText(text);
+        imageEdit.addTextOnImage();
     }
 
-    public void changeTextPlace(String place){
-
+    public void changeTextPlace(ImageEdit imageEdit, String place){
+        imageEdit.setTextPlace(place);
     }
 
-    public void changeFont(String font){
-
+    public void changeFont(ImageEdit imageEdit, String font){
+        imageEdit.setFont(font);
     }
 
-    public void changeTextSize(int size){
-
+    public void changeTextSize(ImageEdit imageEdit, int size){
+        imageEdit.setTextSize(size);
     }
 
-    public void changeTextColor(String color){
-
+    public void changeTextColor(ImageEdit imageEdit, String color){
+        imageEdit.setTextColor(color);
     }
 }
