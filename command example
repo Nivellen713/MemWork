@@ -1,0 +1,1 @@
+mem .\images\testImage.png 'hello world' -p center -f arial -s 25 -c black
