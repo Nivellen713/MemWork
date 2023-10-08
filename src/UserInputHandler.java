@@ -1,45 +1,46 @@
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
 public class UserInputHandler {
 
     public void handleUserInput() throws IOException {
-        Scanner scanner = new Scanner(System.in);
         ConsoleCommand consoleCommand = new ConsoleCommand();
 
 
         String userInput;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         do {
-            userInput = scanner.next();
+            userInput = reader.readLine();
             switch (userInput) {
                 case "help":
                     consoleCommand.help();
                     break;
                 case "mem":
-                    System.out.println("write path to file:\n");
-                    String pathToFile = scanner.next();
-                    System.out.println("write text for the picture:\n");
-                    String text = scanner.nextLine();
+                    System.out.println("write path to file: ");
+                    String pathToFile = reader.readLine();
+                    System.out.print("write text for the picture: ");
+                    String text = reader.readLine();
                     consoleCommand.mem(pathToFile, text);
                     break;
                 case "place":
-                    System.out.println("write text place (center, top, bottom):\n");
-                    String place = scanner.next();
+                    System.out.println("write text place (center, top, bottom): ");
+                    String place = reader.readLine();
                     consoleCommand.changeTextPlace(place);
                     break;
                 case "font":
-                    System.out.println("write font for text:\n");
-                    String font = scanner.nextLine();
+                    System.out.println("write font for text: ");
+                    String font = reader.readLine();
                     consoleCommand.changeFont(font);
                     break;
                 case "size":
-                    System.out.println("write size of text:\n");
-                    int size = scanner.nextInt();
-                    consoleCommand.changeTextSize(size);
+                    System.out.println("write size of text: ");
+                    String size = reader.readLine();
+                    consoleCommand.changeTextSize(Integer.parseInt(size));
                     break;
                 case "color":
-                    System.out.println("write color for text:\n");
-                    String color = scanner.nextLine();
+                    System.out.println("write color for text: ");
+                    String color = reader.readLine();
                     consoleCommand.changeTextColor(color);
                     break;
                 default:
