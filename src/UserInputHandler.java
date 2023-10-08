@@ -7,11 +7,11 @@ public class UserInputHandler {
         Scanner scanner = new Scanner(System.in);
         ConsoleCommand consoleCommand = new ConsoleCommand();
 
-        for(;;) {
-            String userInput = scanner.next();
+
+        String userInput;
+        do {
+            userInput = scanner.next();
             switch (userInput) {
-                case "exit":
-                    break;
                 case "help":
                     consoleCommand.help();
                     break;
@@ -46,6 +46,6 @@ public class UserInputHandler {
                     System.out.println("use help command");
                     break;
             }
-        }
+        } while (!userInput.equals("exit"));
     }
 }
